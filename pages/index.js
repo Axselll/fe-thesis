@@ -1,14 +1,16 @@
 import Image from "next/image";
-import { GoogleLoginButton } from "react-social-login-buttons";
 import logo from "../public/logo-itusdh.png";
 import img1 from "../public/hr_06.jpg";
 import axios from "axios";
-import { useSelector, useDispatch } from "react-redux";
+import Cookies from "js-cookie";
+import { GoogleLoginButton } from "react-social-login-buttons";
+import { useDispatch } from "react-redux";
 import { setIsAuthenticated, setAuthUser } from "../app/appSlice";
+import { setToken } from "../app/tokenSlice";
 import { useRouter } from "next/router";
+import { store } from "../app/store";
 
 export default function Home() {
-	const user = useSelector((state) => state.app.authUser);
 	const dispatch = useDispatch();
 	const router = useRouter();
 
@@ -21,13 +23,17 @@ export default function Home() {
 				console.log(err);
 				dispatch(setIsAuthenticated(false));
 				dispatch(setAuthUser(null));
+				dispatch(setToken(null));
 				router.push("/");
 			});
 
 		if (response && response.data) {
-			console.log(response.data);
 			dispatch(setIsAuthenticated(true));
 			dispatch(setAuthUser(response.data));
+			dispatch(
+				setToken(Cookies.set("access_token", response.data.access_token))
+			);
+			store.subscribe(setAuthUser);
 			router.push("/repository");
 		}
 	};

@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import Cookies from "js-cookie";
 
 const initialState = {
 	isAuthenticated: false,
@@ -17,9 +18,6 @@ const appSlice = createSlice({
 		},
 	},
 });
-
-// export const { setIsAuthenticated, setAuthUser } = appSlice.actions;
-// export default appSlice.reducer;
 
 export default appSlice.reducer;
 const setIsAuthenticated = appSlice.actions.setIsAuthenticated;
