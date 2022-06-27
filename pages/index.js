@@ -30,7 +30,7 @@ export default function Home() {
 		if (response && response.data) {
 			dispatch(setIsAuthenticated(true));
 			dispatch(setAuthUser(response.data));
-			dispatch(
+			await dispatch(
 				setToken(Cookies.set("access_token", response.data.access_token))
 			);
 			store.subscribe(setAuthUser);
@@ -79,7 +79,6 @@ export default function Home() {
 					<h2 className=" flex flex-col items-end text-sm p-2">
 						{"Created for those who can't organize things"}
 						<span>because their life is so messed up</span>
-						<span>like mine . . .</span>
 					</h2>
 				</section>
 				<section>
@@ -87,7 +86,7 @@ export default function Home() {
 				</section>
 			</main>
 			<footer className="flex justify-center items-center text-sm w-full h-12 bg-slate-600 text-white">
-				&copy; 2022 || Gak Bisa Frontend
+				&copy; 2022 || CCDFE
 			</footer>
 		</div>
 	);

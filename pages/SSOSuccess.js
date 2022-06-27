@@ -7,7 +7,7 @@ function SSOSuccess() {
 		}, 1000);
 	}, []);
 
-	return <div>Thanks for loggin in!</div>;
+	return <div></div>;
 }
 
 export default SSOSuccess;
