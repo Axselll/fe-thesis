@@ -8,4 +8,18 @@ const config = {
 	},
 };
 
-export { access_token, config };
+const changeConfig = {
+	headers: {
+		Authorization: `Bearer ${access_token}`,
+		"Content-Type": "multipart/form-data",
+	},
+};
+
+const downloadConfig = {
+	headers: {
+		Authorization: `Bearer ${access_token}`,
+		responseType: "blob"
+	},
+};
+
+export { access_token, config, changeConfig, downloadConfig };
