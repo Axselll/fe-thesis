@@ -173,6 +173,7 @@ export default function Commit() {
 																		<a
 																			href={`${process.env.NEXT_PUBLIC_BACKEND_URL}/commit/${item.file}`}
 																			target="_blank"
+																			rel="noreferrer"
 																			className="text-sm mb-1 pl-4 text-gray-500 px-px hover:text-gray-700 transition ease-out duration-200 cursor-pointer">
 																			Download
 																		</a>

@@ -72,9 +72,7 @@ export default function Home() {
 			<main className="flex h-screen items-center justify-around">
 				<section className="-mt-24">
 					<h1 className="text-4xl font-bold p-2">
-						{"We Will Track Your "}
-						<span className="line-through decoration-double">Shit</span> " Stuff
-						"
+						{"We Will Track Your Stuff"}
 					</h1>
 					<h2 className=" flex flex-col items-end text-sm p-2">
 						{"Created for those who can't organize things"}
