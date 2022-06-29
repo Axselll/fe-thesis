@@ -12,7 +12,7 @@ import { store } from "../app/store";
 
 export default function Home() {
 	const dispatch = useDispatch();
-	const router = useRouter();
+	const useRouter = useRouter();
 
 	const fetchAuthUser = async () => {
 		const response = await axios
@@ -24,7 +24,7 @@ export default function Home() {
 				dispatch(setIsAuthenticated(false));
 				dispatch(setAuthUser(null));
 				dispatch(setToken(null));
-				router.push("/");
+				useRouter.push("/");
 			});
 
 		if (response && response.data) {
@@ -34,7 +34,7 @@ export default function Home() {
 				setToken(Cookies.set("access_token", response.data.access_token))
 			);
 			store.subscribe(setAuthUser);
-			router.push("/repository");
+			useRouter.push("/repository");
 		}
 	};
 
@@ -86,7 +86,7 @@ export default function Home() {
 				</section>
 			</main>
 			<footer className="flex justify-center items-center text-sm w-full h-12 bg-slate-600 text-white">
-				&copy; 2022 || CCDFE
+				2022 || CCDFE
 			</footer>
 		</div>
 	);

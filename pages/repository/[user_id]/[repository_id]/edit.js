@@ -7,8 +7,8 @@ import { config, access_token } from "../../../../util/apiCallConfig";
 import NotAuthorized from "../../../../components/NotAuthorized";
 import bg from "../../../../public/bg.jpg";
 
-export default function add({ user_id, repository_id, repoData }) {
-	const router = useRouter();
+export default function Edit({ user_id, repository_id, repoData }) {
+	const useRouter = useRouter();
 	const [data, setData] = useState({
 		name: repoData.repository_name,
 		desc: repoData.repository_desc,
@@ -31,7 +31,7 @@ export default function add({ user_id, repository_id, repoData }) {
 				position: "bottom-center",
 			});
 			setTimeout(() => {
-				router.back();
+				useRouter.back();
 			}, 2000);
 		} catch (error) {
 			toast.error(error, { position: "bottom-center" });
@@ -113,7 +113,7 @@ export default function add({ user_id, repository_id, repoData }) {
 									onChange={handleChange}
 								/>
 							</div>
-							<div class="flex space-x-2 justify-center">
+							<div className="flex space-x-2 justify-center">
 								<button
 									type="submit"
 									data-mdb-ripple="true"

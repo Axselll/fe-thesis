@@ -14,9 +14,9 @@ import Cookies from "js-cookie";
 import axios from "axios";
 import toast, { Toaster } from "react-hot-toast";
 
-export default function repository() {
-	const user = useSelector((state) => state.app.authUser);
-	const router = useRouter();
+export default function Repository() {
+	const useUser = useSelector((state) => state.app.authUser);
+	const useRouter = useRouter();
 	const [data, setData] = useState({});
 
 	useEffect(() => {
@@ -27,7 +27,7 @@ export default function repository() {
 	const fetchData = async () => {
 		const response = await axios.get(
 			`${process.env.NEXT_PUBLIC_BACKEND_URL}/user/${
-				user && user.loggedInUser._id
+				useUser && useUser.loggedInUser._id
 			}`,
 			config
 		);

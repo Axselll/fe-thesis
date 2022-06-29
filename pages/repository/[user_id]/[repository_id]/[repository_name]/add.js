@@ -7,9 +7,9 @@ import axios from "axios";
 import bg from "../../../../../public/bg.jpg";
 import toast, { Toaster } from "react-hot-toast";
 
-export default function add({ commitData }) {
-	const router = useRouter();
-	const ref = useRef();
+export default function Add({ commitData }) {
+	const useRouter = useRouter();
+	const useRef = useRef();
 	const [data, setData] = useState({
 		title: "",
 		desc: "",
@@ -27,7 +27,7 @@ export default function add({ commitData }) {
 			toast.error("File type must be pdf/docx", { position: "bottom-center" });
 			setFile("");
 			setFileData("");
-			ref.current.value = "";
+			useRef.current.value = "";
 			return;
 		}
 		setFile(fileName);
@@ -53,7 +53,7 @@ export default function add({ commitData }) {
 			);
 			toast.success("New Commit Created", { position: "bottom-center" });
 			setTimeout(() => {
-				router.back();
+				useRouter.back();
 			}, 2000);
 		} catch (error) {
 			toast.error(error, { position: "bottom-center" });
@@ -163,7 +163,7 @@ export default function add({ commitData }) {
 									accept="*"
 									type="file"
 									onChange={handleFileChange}
-									ref={ref}
+									ref={useRef}
 								/>
 							</div>
 							<div className="flex space-x-2 justify-center">

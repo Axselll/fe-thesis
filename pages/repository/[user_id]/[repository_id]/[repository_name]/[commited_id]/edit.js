@@ -10,8 +10,8 @@ import axios from "axios";
 import bg from "../../../../../../public/bg.jpg";
 import toast, { Toaster } from "react-hot-toast";
 
-export default function add({ commitData, displayData }) {
-	const router = useRouter();
+export default function Edit({ commitData, displayData }) {
+	const useRouter = useRouter();
 	const [data, setData] = useState({
 		title: displayData.commited_title,
 		desc: displayData.commited_desc,
@@ -54,7 +54,7 @@ export default function add({ commitData, displayData }) {
 			);
 			toast.success("Exisisting Commit Updated", { position: "bottom-center" });
 			setTimeout(() => {
-				router.back();
+				useRouter.back();
 			}, 2000);
 		} catch (error) {
 			toast.error(error, { position: "bottom-center" });

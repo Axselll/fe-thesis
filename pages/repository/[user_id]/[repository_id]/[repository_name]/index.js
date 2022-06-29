@@ -13,10 +13,10 @@ import moment from "moment";
 import "moment/locale/id";
 import toast, { Toaster } from "react-hot-toast";
 
-export default function commit() {
-	const router = useRouter();
+export default function Commit() {
+	const useRouter = useRouter();
 	const [data, setData] = useState({});
-	const { user_id, repository_id, repository_name } = router.query;
+	const { user_id, repository_id, repository_name } = useRouter.query;
 
 	useEffect(() => {
 		if (!access_token) return;
@@ -72,7 +72,7 @@ export default function commit() {
 							<section className="pl-6 w-11/12 items-center relative self-center">
 								<div
 									onClick={() =>
-										router.push({
+										useRouter.push({
 											pathname: `/repository/[user_id]/[repository_id]/[repository_name]/add`,
 											query: {
 												user_id: user_id,
