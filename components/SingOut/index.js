@@ -2,11 +2,11 @@ import { useRouter } from "next/router";
 import Cookies from "js-cookie";
 
 export default function SIgnOut() {
-    const router = useRouter()
+    const useRouter = useRouter()
 
     const signOut = async () => {
         await Cookies.remove('access_token')
-        router.push('/')
+        useRouter.push('/')
     }
 
     return (

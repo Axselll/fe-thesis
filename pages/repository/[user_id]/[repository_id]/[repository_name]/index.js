@@ -8,7 +8,7 @@ import bg from "../../../../../public/bg.jpg";
 import { config, access_token } from "../../../../../util/apiCallConfig";
 import NotAuthorized from "../../../../../components/NotAuthorized";
 import ReviewTab from "../../../../../components/ReviewTab";
-import SIgnOut from "../../../../../components/Singout";
+import SIgnOut from "../../../../../components/SingOut";
 import moment from "moment";
 import "moment/locale/id";
 import toast, { Toaster } from "react-hot-toast";

@@ -8,7 +8,7 @@ import Image from "next/image";
 import bg from "../../public/bg.jpg";
 import moment from "moment";
 import "moment/locale/id";
-import SIgnOut from "../../components/Singout";
+import SIgnOut from "../../components/SingOut";
 import NotAuthorized from "../../components/NotAuthorized";
 import Cookies from "js-cookie";
 import axios from "axios";
