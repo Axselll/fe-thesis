@@ -11,7 +11,7 @@ import bg from "../../../../../../public/bg.jpg";
 import toast, { Toaster } from "react-hot-toast";
 
 export default function Edit({ commitData, displayData }) {
-	const useRouter = useRouter();
+	const useNav = useRouter();
 	const [data, setData] = useState({
 		title: displayData.commited_title,
 		desc: displayData.commited_desc,
@@ -54,7 +54,7 @@ export default function Edit({ commitData, displayData }) {
 			);
 			toast.success("Exisisting Commit Updated", { position: "bottom-center" });
 			setTimeout(() => {
-				useRouter.back();
+				useNav.back();
 			}, 2000);
 		} catch (error) {
 			toast.error(error, { position: "bottom-center" });
@@ -83,6 +83,7 @@ export default function Edit({ commitData, displayData }) {
 								</label>
 								<input
 									className="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+									autoComplete="off"
 									id="floatingTitle"
 									type="text"
 									value={data.title}

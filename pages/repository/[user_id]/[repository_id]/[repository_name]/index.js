@@ -14,9 +14,9 @@ import "moment/locale/id";
 import toast, { Toaster } from "react-hot-toast";
 
 export default function Commit() {
-	const useRouter = useRouter();
+	const useNav = useRouter();
 	const [data, setData] = useState({});
-	const { user_id, repository_id, repository_name } = useRouter.query;
+	const { user_id, repository_id, repository_name } = useNav.query;
 
 	useEffect(() => {
 		if (!access_token) return;
@@ -72,7 +72,7 @@ export default function Commit() {
 							<section className="pl-6 w-11/12 items-center relative self-center">
 								<div
 									onClick={() =>
-										useRouter.push({
+										useNav.push({
 											pathname: `/repository/[user_id]/[repository_id]/[repository_name]/add`,
 											query: {
 												user_id: user_id,

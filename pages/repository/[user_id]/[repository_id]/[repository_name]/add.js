@@ -8,8 +8,8 @@ import bg from "../../../../../public/bg.jpg";
 import toast, { Toaster } from "react-hot-toast";
 
 export default function Add({ commitData }) {
-	const useRouter = useRouter();
-	const useRef = useRef();
+	const useNav = useRouter();
+	const useReference = useRef();
 	const [data, setData] = useState({
 		title: "",
 		desc: "",
@@ -27,7 +27,7 @@ export default function Add({ commitData }) {
 			toast.error("File type must be pdf/docx", { position: "bottom-center" });
 			setFile("");
 			setFileData("");
-			useRef.current.value = "";
+			useReference.current.value = "";
 			return;
 		}
 		setFile(fileName);
@@ -53,7 +53,7 @@ export default function Add({ commitData }) {
 			);
 			toast.success("New Commit Created", { position: "bottom-center" });
 			setTimeout(() => {
-				useRouter.back();
+				useNav.back();
 			}, 2000);
 		} catch (error) {
 			toast.error(error, { position: "bottom-center" });
@@ -164,7 +164,7 @@ export default function Add({ commitData }) {
 									accept="*"
 									type="file"
 									onChange={handleFileChange}
-									ref={useRef}
+									ref={useReference}
 								/>
 							</div>
 							<div className="flex space-x-2 justify-center">

@@ -8,7 +8,7 @@ import bg from "../../../public/bg.jpg";
 import toast, { Toaster } from "react-hot-toast";
 
 export default function Add({ user_id }) {
-	const useRouter = useRouter();
+	const useNav = useRouter();
 	const [data, setData] = useState({
 		name: "",
 		desc: "",
@@ -28,7 +28,7 @@ export default function Add({ user_id }) {
 			);
 			toast.success("New Repository Created", { position: "bottom-center" });
 			setTimeout(() => {
-				useRouter.back();
+				useNav.back();
 			}, 2000);
 		} catch (error) {
 			toast.error(error, { position: "bottom-center" });

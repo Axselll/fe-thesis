@@ -12,7 +12,7 @@ import { store } from "../app/store";
 
 export default function Home() {
 	const dispatch = useDispatch();
-	const useRouter = useRouter();
+	const useNav = useRouter();
 
 	const fetchAuthUser = async () => {
 		const response = await axios
@@ -24,7 +24,7 @@ export default function Home() {
 				dispatch(setIsAuthenticated(false));
 				dispatch(setAuthUser(null));
 				dispatch(setToken(null));
-				useRouter.push("/");
+				useNav.push("/");
 			});
 
 		if (response && response.data) {
@@ -34,7 +34,7 @@ export default function Home() {
 				setToken(Cookies.set("access_token", response.data.access_token))
 			);
 			store.subscribe(setAuthUser);
-			useRouter.push("/repository");
+			useNav.push("/repository");
 		}
 	};
 

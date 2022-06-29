@@ -16,7 +16,7 @@ import toast, { Toaster } from "react-hot-toast";
 
 export default function Repository() {
 	const useUser = useSelector((state) => state.app.authUser);
-	const useRouter = useRouter();
+	const useNav = useRouter();
 	const [data, setData] = useState({});
 
 	useEffect(() => {
@@ -37,7 +37,7 @@ export default function Repository() {
 		try {
 			await axios.delete(
 				`${process.env.NEXT_PUBLIC_BACKEND_URL}/repository/${
-					user && user.loggedInUser._id
+					useUser && useUser.loggedInUser._id
 				}/${id}`,
 				config
 			);

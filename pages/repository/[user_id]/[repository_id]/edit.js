@@ -8,7 +8,7 @@ import NotAuthorized from "../../../../components/NotAuthorized";
 import bg from "../../../../public/bg.jpg";
 
 export default function Edit({ user_id, repository_id, repoData }) {
-	const useRouter = useRouter();
+	const useNav = useRouter();
 	const [data, setData] = useState({
 		name: repoData.repository_name,
 		desc: repoData.repository_desc,
@@ -31,7 +31,7 @@ export default function Edit({ user_id, repository_id, repoData }) {
 				position: "bottom-center",
 			});
 			setTimeout(() => {
-				useRouter.back();
+				useNav.back();
 			}, 2000);
 		} catch (error) {
 			toast.error(error, { position: "bottom-center" });
@@ -137,7 +137,7 @@ export default function Edit({ user_id, repository_id, repoData }) {
 export async function getServerSideProps(context) {
 	const { user_id, repository_id, repository_name, repository_desc } =
 		context.query;
-	console.log(context.query);
+	// console.log(context.query);
 
 	return {
 		props: {
