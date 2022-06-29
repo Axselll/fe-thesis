@@ -5,17 +5,13 @@ import Link from "next/link";
 import axios from "axios";
 import Image from "next/image";
 import bg from "../../../../../public/bg.jpg";
-import {
-	config,
-	downloadConfig,
-	access_token,
-	changeConfig,
-} from "../../../../../util/apiCallConfig";
+import { config, access_token } from "../../../../../util/apiCallConfig";
 import NotAuthorized from "../../../../../components/NotAuthorized";
 import ReviewTab from "../../../../../components/ReviewTab";
 import SIgnOut from "../../../../../components/Singout";
 import moment from "moment";
 import "moment/locale/id";
+import toast, { Toaster } from "react-hot-toast";
 
 export default function commit() {
 	const router = useRouter();
@@ -41,9 +37,10 @@ export default function commit() {
 				`${process.env.NEXT_PUBLIC_BACKEND_URL}/commit/${user_id}/${repository_id}/${commited_id}/${file}`,
 				config
 			);
-			await fetchData();
+			toast.success("a Commit Deleted", { position: "bottom-center" });
+			fetchData();
 		} catch (error) {
-			console.error(error);
+			toast.error(error);
 		}
 	};
 
@@ -153,10 +150,10 @@ export default function commit() {
 																					repository_name: repository_name,
 																					commited_title: item.title,
 																					commited_desc: item.desc,
-																					commited_file: item.file,
 																					commited_id: item._id,
 																				},
-																			}}>
+																			}}
+																			as={`/repository/${user_id}/${repository_id}/${repository_name}/${item._id}/edit`}>
 																			<div className="text-sm mb-1 pl-4 text-gray-500 px-px hover:text-gray-700 transition ease-out duration-200 cursor-pointer">
 																				Edit
 																			</div>
@@ -189,6 +186,7 @@ export default function commit() {
 										</div>
 									</div>
 								</div>
+								<Toaster />
 							</div>
 						</TabPanel>
 						<TabPanel className="flex justify-center items-center w-full h-full -mt-96">

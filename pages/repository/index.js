@@ -12,6 +12,7 @@ import SIgnOut from "../../components/Singout";
 import NotAuthorized from "../../components/NotAuthorized";
 import Cookies from "js-cookie";
 import axios from "axios";
+import toast, { Toaster } from "react-hot-toast";
 
 export default function repository() {
 	const user = useSelector((state) => state.app.authUser);
@@ -41,9 +42,10 @@ export default function repository() {
 				}/${id}`,
 				config
 			);
-			await fetchData();
+			toast.success("a Repository Deleted", { position: "bottom-center" });
+			fetchData();
 		} catch (error) {
-			console.error(error);
+			toast.error(error, { position: "bottom-center" });
 		}
 	};
 
@@ -140,6 +142,7 @@ export default function repository() {
 							</div>
 						))}
 					</main>
+					<Toaster />
 				</div>
 			) : (
 				<NotAuthorized />
