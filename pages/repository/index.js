@@ -21,18 +21,17 @@ export default function Repository() {
 
 	useEffect(() => {
 		if (!access_token) return;
+		const fetchData = async () => {
+			const response = await axios.get(
+				`${process.env.NEXT_PUBLIC_BACKEND_URL}/user/${
+					useUser && useUser.loggedInUser._id
+				}`,
+				config
+			);
+			setData(response.data);
+		};
 		fetchData();
-	}, []);
-
-	const fetchData = async () => {
-		const response = await axios.get(
-			`${process.env.NEXT_PUBLIC_BACKEND_URL}/user/${
-				useUser && useUser.loggedInUser._id
-			}`,
-			config
-		);
-		setData(response.data);
-	};
+	}, [useUser]);
 
 	const handleDelete = async (id) => {
 		try {
@@ -59,6 +58,7 @@ export default function Repository() {
 						layout="fill"
 						objectFit="cover"
 						placeholder="blur"
+						alt="bg"
 					/>
 					<header className="p-10 w-full flex flex-row justify-between relative">
 						<p className="p-2 cursor-default w-80">

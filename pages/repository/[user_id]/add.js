@@ -45,6 +45,7 @@ export default function Add({ user_id }) {
 						layout="fill"
 						objectFit="cover"
 						placeholder="blur"
+						alt="bg"
 					/>
 					<div className="flex rounded-lg bg-white bg-opacity-30 backdrop-filter backdrop-blur-xl p-4 justify-center items-center">
 						<form onSubmit={addNewRepository}>

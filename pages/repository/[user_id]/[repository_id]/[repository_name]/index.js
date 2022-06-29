@@ -20,16 +20,15 @@ export default function Commit() {
 
 	useEffect(() => {
 		if (!access_token) return;
+		const fetchData = async () => {
+			const response = await axios.get(
+				`${process.env.NEXT_PUBLIC_BACKEND_URL}/repository/${user_id}/${repository_id}`,
+				config
+			);
+			setData(response.data.response.repository[0]);
+		};
 		fetchData();
-	}, []);
-
-	const fetchData = async () => {
-		const response = await axios.get(
-			`${process.env.NEXT_PUBLIC_BACKEND_URL}/repository/${user_id}/${repository_id}`,
-			config
-		);
-		setData(response.data.response.repository[0]);
-	};
+	}, [user_id, repository_id]);
 
 	const handleDelete = async (user_id, repository_id, commited_id, file) => {
 		try {
@@ -54,6 +53,7 @@ export default function Commit() {
 						layout="fill"
 						objectFit="cover"
 						placeholder="blur"
+						alt="bg"
 					/>
 					<header className="p-10 w-full flex flex-row justify-between relative">
 						<p className="p-2 cursor-default w-80">
