@@ -97,6 +97,7 @@ export default function Add({ commitData }) {
 							m-0
 							focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
 									id="floatingTitle"
+									autoComplete="off"
 									required
 									type="text"
 									value={data.title}
