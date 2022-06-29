@@ -16,7 +16,7 @@ export default function Home() {
 
 	const fetchAuthUser = async () => {
 		const response = await axios
-			.get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/auth/user`, {
+			.post(`${process.env.NEXT_PUBLIC_BACKEND_URL}/auth/user`, {
 				withCredentials: true,
 			})
 			.catch((err) => {
