@@ -41,7 +41,7 @@ export default function Edit({ user_id, repository_id, repoData }) {
 	return (
 		<>
 			{access_token ? (
-				<div className="flex justify-center items-center h-screen w-full">
+				<div className="flex justify-center items-center h-screen w-full relative">
 					<Image
 						className="opacity-20 blur-sm"
 						src={bg}
@@ -50,9 +50,9 @@ export default function Edit({ user_id, repository_id, repoData }) {
 						placeholder="blur"
 						alt="bg"
 					/>
-					<div className="flex rounded-lg bg-white bg-opacity-30 backdrop-filter backdrop-blur-xl p-4 justify-center items-center">
+					<div className="flex rounded-lg bg-white bg-opacity-30 backdrop-filter backdrop-blur-xl p-4 justify-center items-center relative">
 						<form onSubmit={editNewRepository}>
-							<div className="form-floating mb-3 xl:w-96">
+							<div className="form-floating mb-3 xl:w-96 relative">
 								<label
 									htmlFor="floatingName"
 									className="form-label inline-block mb-2 text-gray-700 text-xl">
@@ -83,7 +83,7 @@ export default function Edit({ user_id, repository_id, repoData }) {
 									onChange={handleChange}
 								/>
 							</div>
-							<div className="form-floating mb-3 xl:w-96">
+							<div className="form-floating mb-3 xl:w-96 relative">
 								<label
 									htmlFor="floatingDesc"
 									className="form-label inline-block mb-2 text-gray-700 text-xl">
@@ -114,7 +114,7 @@ export default function Edit({ user_id, repository_id, repoData }) {
 									onChange={handleChange}
 								/>
 							</div>
-							<div className="flex space-x-2 justify-center">
+							<div className="flex space-x-2 justify-center relative">
 								<button
 									type="submit"
 									data-mdb-ripple="true"

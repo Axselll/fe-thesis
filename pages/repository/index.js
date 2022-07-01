@@ -33,6 +33,16 @@ export default function Repository() {
 		fetchData();
 	}, [useUser]);
 
+	const fetchDataAfterDelete = async () => {
+		const response = await axios.get(
+			`${process.env.NEXT_PUBLIC_BACKEND_URL}/user/${
+				useUser && useUser.loggedInUser._id
+			}`,
+			config
+		);
+		setData(response.data);
+	};
+
 	const handleDelete = async (id) => {
 		try {
 			await axios.delete(
@@ -42,7 +52,7 @@ export default function Repository() {
 				config
 			);
 			toast.success("a Repository Deleted", { position: "bottom-center" });
-			fetchData();
+			fetchDataAfterDelete();
 		} catch (error) {
 			toast.error(error, { position: "bottom-center" });
 		}

@@ -63,7 +63,7 @@ export default function Add({ commitData }) {
 	return (
 		<>
 			{access_token ? (
-				<div className="flex justify-center items-center h-screen w-full">
+				<div className="flex justify-center items-center h-screen w-full relative">
 					<Image
 						className="opacity-20 blur-sm"
 						src={bg}
@@ -72,9 +72,9 @@ export default function Add({ commitData }) {
 						placeholder="blur"
 						alt="bg"
 					/>
-					<div className="flex rounded-lg bg-white bg-opacity-30 backdrop-filter backdrop-blur-xl p-4 justify-center items-center">
+					<div className="flex rounded-lg bg-white bg-opacity-30 backdrop-filter backdrop-blur-xl p-4 justify-center items-center relative">
 						<form onSubmit={add} encType="multipart/form-data">
-							<div>
+							<div className="relative">
 								<label
 									htmlFor="floatingTitle"
 									className="form-label inline-block mb-2 text-gray-700 text-xl">
@@ -105,7 +105,7 @@ export default function Add({ commitData }) {
 									onChange={handleChange}
 								/>
 							</div>
-							<div>
+							<div className="relative">
 								<label
 									htmlFor="floatingDesc"
 									className="form-label inline-block mb-2 text-gray-700 text-xl">
@@ -136,7 +136,7 @@ export default function Add({ commitData }) {
 									onChange={handleChange}
 								/>
 							</div>
-							<div className="mb-3 w-96">
+							<div className="mb-3 w-96 relative">
 								<label
 									htmlFor="floatingFile"
 									className="form-label inline-block mb-2 text-gray-700 text-xl">
@@ -168,7 +168,7 @@ export default function Add({ commitData }) {
 									ref={useReference}
 								/>
 							</div>
-							<div className="flex space-x-2 justify-center">
+							<div className="flex space-x-2 justify-center relative">
 								<button
 									type="submit"
 									data-mdb-ripple="true"

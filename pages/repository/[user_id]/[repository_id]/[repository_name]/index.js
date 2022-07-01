@@ -30,6 +30,14 @@ export default function Commit() {
 		fetchData();
 	}, [user_id, repository_id]);
 
+	const fetchDataAfterDelete = async () => {
+		const response = await axios.get(
+			`${process.env.NEXT_PUBLIC_BACKEND_URL}/repository/${user_id}/${repository_id}`,
+			config
+		);
+		setData(response.data.response.repository[0]);
+	};
+
 	const handleDelete = async (user_id, repository_id, commited_id, file) => {
 		try {
 			await axios.delete(
@@ -37,7 +45,7 @@ export default function Commit() {
 				config
 			);
 			toast.success("a Commit Deleted", { position: "bottom-center" });
-			fetchData();
+			fetchDataAfterDelete();
 		} catch (error) {
 			toast.error(error);
 		}
@@ -83,7 +91,7 @@ export default function Commit() {
 									}
 									className="cursor-pointer w-36">
 									<a className="bg-lime-600 w-36 text-center p-1 rounded text-white hover:bg-lime-700 transition ease-out duration-300">
-										New Repository
+										New Commit
 									</a>
 								</div>
 							</section>
