@@ -167,6 +167,9 @@ export default function Add({ commitData }) {
 									onChange={handleFileChange}
 									ref={useReference}
 								/>
+								<label className="text-sm text-gray-500">
+									File must be type of pdf or docx
+								</label>
 							</div>
 							<div className="flex space-x-2 justify-center relative">
 								<button

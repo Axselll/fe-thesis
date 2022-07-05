@@ -89,9 +89,9 @@ export default function Commit() {
 											},
 										})
 									}
-									className="cursor-pointer w-36">
-									<a className="bg-lime-600 w-36 text-center p-1 rounded text-white hover:bg-lime-700 transition ease-out duration-300">
-										New Commit
+									className="cursor-pointer w-full">
+									<a className="bg-lime-600 w-full text-center p-1 rounded text-white hover:bg-lime-700 transition ease-out duration-300">
+										Create New Commit
 									</a>
 								</div>
 							</section>

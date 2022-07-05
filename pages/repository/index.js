@@ -78,7 +78,7 @@ export default function Repository() {
 						<SIgnOut />
 					</header>
 					<section className="pl-6 w-11/12 items-center relative">
-						<div className="cursor-pointer w-36">
+						<div className="cursor-pointer w-full">
 							<Link
 								href={{
 									pathname: `/repository/[user_id]/add`,
@@ -87,8 +87,8 @@ export default function Repository() {
 									},
 								}}
 								as={`repository/${data._id}/add`}>
-								<a className="bg-lime-600 w-36 text-center p-1 rounded text-white hover:bg-lime-700 transition ease-out duration-300">
-									New Repository
+								<a className="bg-lime-600 w-full text-center p-1 rounded text-white hover:bg-lime-700 transition ease-out duration-300">
+									Create New Repository
 								</a>
 							</Link>
 						</div>
